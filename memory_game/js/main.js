@@ -8,7 +8,7 @@
  {
  	rank: "queen",
  	suit: "diamonds",
- 	cardIamge: "images/queen-of-diamonds.png"
+ 	cardImage: "images/queen-of-diamonds.png"
  },
  {
  	rank: "king",
@@ -25,6 +25,7 @@
 var cardsInPlay = [];
 
 function checkForMatch(){
+	console.log(cardsInPlay);
 	if (cardsInPlay[0] === cardsInPlay[1]){
 		//console.log("You found a match");
 		alert("You found a match");
@@ -36,14 +37,16 @@ function checkForMatch(){
 
 
 function flipCard () {
+	console.log(this);
+	console.log(cards);
 	var cardId = this.getAttribute('data-id');
 	cardsInPlay.push(cards[cardId].rank);
 
 	console.log("User flipped " + cards[cardId].rank);
 	console.log(cards[cardId].cardImage);
+	console.log(cards[cardId]);
 	console.log(cards[cardId].suit);
 	this.setAttribute('src', cards[cardId].cardImage);
-
 	if (cardsInPlay.length === 2){
 		checkForMatch();
 	}
